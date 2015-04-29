@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using NRecaptcha2.Core;
 
 namespace NRecaptcha2.WebControls
 {
@@ -159,20 +160,20 @@ namespace NRecaptcha2.WebControls
                 throw new InvalidOperationException("SiteKey is required");
             }
 
-            writer.AddAttribute("class", "g-recaptcha");
-            writer.AddAttribute("data-sitekey", SiteKey);
-            writer.AddAttribute("data-theme", Theme.ToString().ToLower());
-            writer.AddAttribute("data-type", Type.ToString().ToLower());
-            writer.AddAttribute("data-tabindex", TabIndex.ToString());
+            writer.AddAttribute(CaptchaTag.Class, CaptchaTag.RecaptchaClass);
+            writer.AddAttribute(CaptchaTag.SiteKey, SiteKey);
+            writer.AddAttribute(CaptchaTag.Theme, Theme.ToString().ToLower());
+            writer.AddAttribute(CaptchaTag.Type, Type.ToString().ToLower());
+            writer.AddAttribute(CaptchaTag.TabIndex, TabIndex.ToString());
 
             if (!string.IsNullOrEmpty(Callback))
             {
-                writer.AddAttribute("data-callback", Callback);
+                writer.AddAttribute(CaptchaTag.Callback, Callback);
             }
 
             if (!string.IsNullOrEmpty(ExpiredCallback))
             {
-                writer.AddAttribute("data-expired-callback", ExpiredCallback);
+                writer.AddAttribute(CaptchaTag.ExpiredCallback, ExpiredCallback);
             }
         }
     }
