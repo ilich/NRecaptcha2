@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,12 +12,20 @@ namespace WebFormsSample
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            captcha.SiteKey = ConfigurationManager.AppSettings["SiteKey"];
         }
 
         protected void SubmitForm(object sender, EventArgs e)
         {
+            if(!Page.IsValid)
+            {
+                return;
+            }
 
+            capturedFirstName.Text = firstName.Text;
+            capturedLastName.Text = lastName.Text;
+            form.Visible = false;
+            results.Visible = true;
         }
     }
 }

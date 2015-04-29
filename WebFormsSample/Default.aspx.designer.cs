@@ -49,6 +49,15 @@ namespace WebFormsSample {
         protected global::System.Web.UI.WebControls.TextBox lastName;
         
         /// <summary>
+        /// captcha control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::NRecaptcha2.WebControls.NRecaptcha2Validator captcha;
+        
+        /// <summary>
         /// results control.
         /// </summary>
         /// <remarks>
