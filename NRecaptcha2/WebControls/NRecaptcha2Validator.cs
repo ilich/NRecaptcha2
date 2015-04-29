@@ -14,6 +14,9 @@ namespace NRecaptcha2.WebControls
     {
         private bool _isValid;
 
+        /// <summary>
+        /// Gets or sets your sitekey.
+        /// </summary>
         [Bindable(false)]
         public string SiteKey
         {
@@ -33,6 +36,9 @@ namespace NRecaptcha2.WebControls
             }
         }
 
+        /// <summary>
+        /// Gets or sets your secret key.
+        /// </summary>
         [Bindable(false)]
         public string SecretKey
         {
@@ -52,6 +58,9 @@ namespace NRecaptcha2.WebControls
             }
         }
 
+        /// <summary>
+        /// Gets or sets the color theme of the widget.
+        /// </summary>
         [Bindable(false)]
         public Theme Theme
         {
@@ -66,6 +75,9 @@ namespace NRecaptcha2.WebControls
             }
         }
 
+        /// <summary>
+        ///  Gets or sets the type of CAPTCHA to serve.
+        /// </summary>
         [Bindable(false)]
         public CaptchaType Type
         {
@@ -80,6 +92,11 @@ namespace NRecaptcha2.WebControls
             }
         }
 
+        /// <summary>
+        /// Gets or sets your callback function that's executed when the user submits a successful 
+        /// CAPTCHA response. The user's response, g-recaptcha-response, 
+        /// will be the input for your callback function.
+        /// </summary>
         [Bindable(false)]
         public string Callback
         {
@@ -94,6 +111,10 @@ namespace NRecaptcha2.WebControls
             }
         }
 
+        /// <summary>
+        /// Gets or sets your callback function that's executed when the recaptcha response expires 
+        /// and the user needs to solve a new CAPTCHA.
+        /// </summary>
         [Bindable(false)]
         public string ExpiredCallback
         {
@@ -108,6 +129,10 @@ namespace NRecaptcha2.WebControls
             }
         }
 
+        /// <summary>
+        /// Gets or sets the text for the error message displayed in a ValidationSummary control 
+        /// when validation fails.
+        /// </summary>
         [Bindable(false)]
         [Localizable(true)]
         public string ErrorMessage
