@@ -13,6 +13,7 @@ namespace WebFormsSample
         protected void Page_Load(object sender, EventArgs e)
         {
             captcha.SiteKey = ConfigurationManager.AppSettings["SiteKey"];
+            captcha.SecretKey = ConfigurationManager.AppSettings["SecretKey"];
         }
 
         protected void SubmitForm(object sender, EventArgs e)

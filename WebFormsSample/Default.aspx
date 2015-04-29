@@ -31,7 +31,7 @@
             <br />
             <br />
 
-            <nrecaptcha2:NRecaptcha2Validator ID="captcha" Theme="Light" Type="Image" Callback="captchaValidated" runat="server" ErrorMessage="" />
+            <nrecaptcha2:NRecaptcha2Validator ID="captcha" Theme="Light" Type="Image" runat="server" ErrorMessage="Captcha is invalid" />
             
             <br />
 
@@ -44,12 +44,5 @@
         </asp:PlaceHolder>
     </div>
     </form>
-
-    <script>
-        function captchaValidated(response) {
-            var msg = "Captcha has been validated. Response: " + response;
-            alert(msg);
-        }
-    </script>
 </body>
 </html>

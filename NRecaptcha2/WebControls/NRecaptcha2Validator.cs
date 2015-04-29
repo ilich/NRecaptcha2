@@ -9,7 +9,7 @@ namespace NRecaptcha2.WebControls
     /// <summary>
     /// reCAPTCHA v2.0 Web Control
     /// </summary>
-    [ToolboxData("<{0}:NRecaptcha2Validator runat=\"server\" ErrorMessage=\"[ErrorMessage]\" SiteKey=\"[SiteKey]\">")]
+    [ToolboxData("<{0}:NRecaptcha2Validator runat=\"server\" ErrorMessage=\"[ErrorMessage]\" SiteKey=\"[SiteKey]\" SecretKey=\"[SecretKey]\">")]
     public class NRecaptcha2Validator : WebControl, IValidator
     {
         private bool _isValid;
@@ -30,6 +30,25 @@ namespace NRecaptcha2.WebControls
                 }
 
                 ViewState["SiteKey"] = value;
+            }
+        }
+
+        [Bindable(false)]
+        public string SecretKey
+        {
+            get
+            {
+                var key = (string)ViewState["SecretKey"];
+                return key ?? string.Empty;
+            }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new InvalidOperationException("Secret Key is required");
+                }
+
+                ViewState["SecretKey"] = value;
             }
         }
 
@@ -112,9 +131,12 @@ namespace NRecaptcha2.WebControls
 
         void IValidator.Validate()
         {
-            // TODO
+            if (string.IsNullOrEmpty(SecretKey))
+            {
+                throw new InvalidOperationException("Secret Key is required");
+            }
             
-            _isValid = true;
+            _isValid = RecaptchaValidator.Validate(SecretKey);
         }
 
         protected override void OnInit(EventArgs e)
