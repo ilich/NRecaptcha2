@@ -5,7 +5,7 @@ using System.Web.Script.Serialization;
 
 namespace NRecaptcha2.Core
 {
-    static class RecaptchaValidator
+    public static class RecaptchaValidator
     {
         public static bool Validate(string secret)
         {
