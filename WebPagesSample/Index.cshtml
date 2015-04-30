@@ -1,16 +1,30 @@
-﻿<!DOCTYPE html>
+﻿@using System.Configuration
+@using NRecaptcha2.Core
+@using NRecaptcha2.WebControls
+@using NRecaptcha2.WebPages
+
+<!DOCTYPE html>
 <html>
     <head>
         <title>NRecaptcha2 ASP.NET Web Pages (Razor) validation</title>
+        @Html.NRecaptcha2Script()
     </head>
     <body>
         @{
+            var siteKey = ConfigurationManager.AppSettings["SiteKey"];
+            
             var errors = new List<string>();
             string firstName = "";
             string lastName = "";
         
             if (IsPost)
             {
+                var secretKey = ConfigurationManager.AppSettings["SecretKey"];
+                if (!Recaptcha2Validator.Validate(secretKey))
+                {
+                    errors.Add("Captcha is invalid");
+                }
+                
                 firstName = Request["firstName"];
                 if (string.IsNullOrWhiteSpace(firstName))
                 {
@@ -46,6 +60,10 @@
                     <br />
                     <br />
 
+                    @Html.NRecaptcha2(siteKey, Theme.Light, CaptchaType.Image, 0)
+
+                    <br />
+
                     <input type="submit" value="Submit" />
                 </form>
             }
@@ -53,6 +71,6 @@
             {
                 <div>@firstName @lastName</div>
             }
-}
+        }
     </body>
 </html>

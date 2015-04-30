@@ -1,7 +1,9 @@
 ﻿namespace NRecaptcha2.Core
 {
-    static class CaptchaTag
+    static class Constants
     {
+        public static readonly string DefaultErrorMessage = "Failed to validate captcha";
+        public static readonly string ScriptUrl = "https://www.google.com/recaptcha/api.js";
         public static readonly string Class = "class";
         public static readonly string RecaptchaClass = "g-recaptcha";
         public static readonly string SiteKey = "data-sitekey";

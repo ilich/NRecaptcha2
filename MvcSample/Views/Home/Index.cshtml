@@ -1,0 +1,37 @@
+﻿@using System.Configuration
+@using NRecaptcha2.Mvc
+@using NRecaptcha2.WebControls
+@using MvcSample.Models
+
+@model Customer
+
+@{
+    var siteKey = ConfigurationManager.AppSettings["SiteKey"];
+}
+
+@section Scripts {
+    @Html.NRecaptcha2Script()
+}
+
+@Html.ValidationSummary()
+
+@using(Html.BeginForm())
+{
+    @Html.Label("First Name: ")
+    @Html.TextBoxFor(m => m.FirstName)
+
+    <br />
+    <br />
+    
+    @Html.Label("Last Name: ")
+    @Html.TextBoxFor(m => m.LastName)
+
+    <br />
+    <br />
+    
+    @Html.NRecaptcha2(siteKey, Theme.Light, CaptchaType.Image, 0)
+    
+    <br />
+    
+    <input type="submit" value="Submit" />
+}

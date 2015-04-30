@@ -5,8 +5,16 @@ using System.Web.Script.Serialization;
 
 namespace NRecaptcha2.Core
 {
-    public static class RecaptchaValidator
+    /// <summary>
+    /// reCAPTCHA v2.0 validator
+    /// </summary>
+    public static class Recaptcha2Validator
     {
+        /// <summary>
+        /// Validates captcha
+        /// </summary>
+        /// <param name="secret">reCAPTCHA secret key</param>
+        /// <returns>True is captcha has been validated, otherwise false</returns>
         public static bool Validate(string secret)
         {
             var response = HttpContext.Current.Request.Form["g-recaptcha-response"];

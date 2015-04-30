@@ -11,6 +11,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebPagesSample(1)", "http:/
 	ProjectSection(WebsiteProperties) = preProject
 		UseIISExpress = "true"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		ProjectReferences = "{c8c1cedb-a99b-418c-b29b-9f9e9bacdb28}|NRecaptcha2.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_56671"
 		Debug.AspNetCompiler.PhysicalPath = "WebPagesSample\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_56671\"
@@ -28,6 +29,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebPagesSample(1)", "http:/
 		SlnRelativePath = "WebPagesSample\"
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcSample", "MvcSample\MvcSample.csproj", "{ADCE3A18-C5AD-4C13-90A2-A0FF567C17F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +50,10 @@ Global
 		{96424400-25E0-4F94-8558-429461694BBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96424400-25E0-4F94-8558-429461694BBB}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{96424400-25E0-4F94-8558-429461694BBB}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{ADCE3A18-C5AD-4C13-90A2-A0FF567C17F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADCE3A18-C5AD-4C13-90A2-A0FF567C17F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADCE3A18-C5AD-4C13-90A2-A0FF567C17F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADCE3A18-C5AD-4C13-90A2-A0FF567C17F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

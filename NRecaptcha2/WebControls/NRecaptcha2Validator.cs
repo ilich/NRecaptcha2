@@ -7,7 +7,7 @@ using NRecaptcha2.Core;
 namespace NRecaptcha2.WebControls
 {
     /// <summary>
-    /// reCAPTCHA v2.0 Web Control
+    /// reCAPTCHA v2.0 Widget
     /// </summary>
     [ToolboxData("<{0}:NRecaptcha2Validator runat=\"server\" ErrorMessage=\"[ErrorMessage]\" SiteKey=\"[SiteKey]\" SecretKey=\"[SecretKey]\">")]
     public class NRecaptcha2Validator : WebControl, IValidator
@@ -140,7 +140,7 @@ namespace NRecaptcha2.WebControls
             get
             {
                 var message = (string)ViewState["ErrorMessage"];
-                return message ?? "Failed to validate captcha";
+                return message ?? Constants.DefaultErrorMessage;
             }
             set
             {
@@ -161,7 +161,7 @@ namespace NRecaptcha2.WebControls
                 throw new InvalidOperationException("Secret Key is required");
             }
             
-            _isValid = RecaptchaValidator.Validate(SecretKey);
+            _isValid = Recaptcha2Validator.Validate(SecretKey);
         }
 
         protected override void OnInit(EventArgs e)
@@ -177,7 +177,7 @@ namespace NRecaptcha2.WebControls
 
         protected override void OnLoad(EventArgs e)
         {
-            Page.ClientScript.RegisterClientScriptInclude("GoogleReCaptchaAPI", "https://www.google.com/recaptcha/api.js");
+            Page.ClientScript.RegisterClientScriptInclude("GoogleReCaptchaAPI", Constants.ScriptUrl);
             base.OnLoad(e);
         }
 
@@ -207,20 +207,20 @@ namespace NRecaptcha2.WebControls
                 throw new InvalidOperationException("SiteKey is required");
             }
 
-            writer.AddAttribute(CaptchaTag.Class, CaptchaTag.RecaptchaClass);
-            writer.AddAttribute(CaptchaTag.SiteKey, SiteKey);
-            writer.AddAttribute(CaptchaTag.Theme, Theme.ToString().ToLower());
-            writer.AddAttribute(CaptchaTag.Type, Type.ToString().ToLower());
-            writer.AddAttribute(CaptchaTag.TabIndex, TabIndex.ToString());
+            writer.AddAttribute(Constants.Class, Constants.RecaptchaClass);
+            writer.AddAttribute(Constants.SiteKey, SiteKey);
+            writer.AddAttribute(Constants.Theme, Theme.ToString().ToLower());
+            writer.AddAttribute(Constants.Type, Type.ToString().ToLower());
+            writer.AddAttribute(Constants.TabIndex, TabIndex.ToString());
 
             if (!string.IsNullOrEmpty(Callback))
             {
-                writer.AddAttribute(CaptchaTag.Callback, Callback);
+                writer.AddAttribute(Constants.Callback, Callback);
             }
 
             if (!string.IsNullOrEmpty(ExpiredCallback))
             {
-                writer.AddAttribute(CaptchaTag.ExpiredCallback, ExpiredCallback);
+                writer.AddAttribute(Constants.ExpiredCallback, ExpiredCallback);
             }
         }
     }
