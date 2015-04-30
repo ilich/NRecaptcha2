@@ -7,6 +7,28 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NRecaptcha2", "NRecaptcha2\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebFormsSample", "WebFormsSample\WebFormsSample.csproj", "{308C255E-D2CB-4DD6-8F2B-0D27622A89BD}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebPagesSample(1)", "http://localhost:56671", "{96424400-25E0-4F94-8558-429461694BBB}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_56671"
+		Debug.AspNetCompiler.PhysicalPath = "WebPagesSample\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_56671\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_56671"
+		Release.AspNetCompiler.PhysicalPath = "WebPagesSample\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_56671\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "WebPagesSample\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +43,10 @@ Global
 		{308C255E-D2CB-4DD6-8F2B-0D27622A89BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{308C255E-D2CB-4DD6-8F2B-0D27622A89BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{308C255E-D2CB-4DD6-8F2B-0D27622A89BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96424400-25E0-4F94-8558-429461694BBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96424400-25E0-4F94-8558-429461694BBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96424400-25E0-4F94-8558-429461694BBB}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{96424400-25E0-4F94-8558-429461694BBB}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
