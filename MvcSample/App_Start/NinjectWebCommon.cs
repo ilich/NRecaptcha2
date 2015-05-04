@@ -10,6 +10,7 @@ namespace MvcSample.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
+    using NRecaptcha2.Mvc;
 
     public static class NinjectWebCommon 
     {
@@ -44,6 +45,9 @@ namespace MvcSample.App_Start
             {
                 kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
+
+                // Register reCAPTCHA secret key provider
+                kernel.Bind<ISecretKeyProvider>().To<WebConfigSecretKeyProvider>();
 
                 RegisterServices(kernel);
                 return kernel;

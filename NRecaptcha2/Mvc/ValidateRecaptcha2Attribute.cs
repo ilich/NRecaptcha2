@@ -34,9 +34,21 @@ namespace NRecaptcha2.Mvc
 
         private ISecretKeyProvider ResolveSecretKeyProvider()
         {
+            // First try to get provider from current dependency resolver
+
+            var resolver = DependencyResolver.Current;
+            var provider = resolver.GetService<ISecretKeyProvider>();
+            if (provider != null)
+            {
+                return provider;
+            }
+
+            // If provider hasn't been received then the type specified in
+            // NRecaptcha2.SecretKeyProvider setting in Web.Config
+
             var typeName = ConfigurationManager.AppSettings["NRecaptcha2.SecretKeyProvider"];
             var type = Type.GetType(typeName);
-            var provider = (ISecretKeyProvider)Activator.CreateInstance(type);
+            provider = (ISecretKeyProvider)Activator.CreateInstance(type);
             return provider;
         }
     }
