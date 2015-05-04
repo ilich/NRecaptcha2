@@ -25,5 +25,25 @@ namespace MvcSample.Controllers
                 return View(model);
             }
         }
+
+        public ActionResult CustomRendering()
+        {
+            var model = new Customer();
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateRecaptcha2(ErrorMessage = "Captcha is invalid")]
+        public ActionResult CustomRendering(Customer model)
+        {
+            if (ModelState.IsValid)
+            {
+                return View("CustomerCreated", model);
+            }
+            else
+            {
+                return View(model);
+            }
+        }
     }
 }

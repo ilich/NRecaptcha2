@@ -14,6 +14,20 @@ namespace NRecaptcha2.WebControls
     {
         private bool _isValid;
 
+        [Bindable(false)]
+        public string ExplicitRenderingFunction
+        {
+            get
+            {
+                var function = (string)ViewState["ExplicitRenderingFunction"];
+                return function ?? string.Empty;
+            }
+            set
+            {
+                ViewState["ExplicitRenderingFunction"] = value;
+            }
+        }
+
         /// <summary>
         /// Gets or sets your sitekey.
         /// </summary>
@@ -177,7 +191,16 @@ namespace NRecaptcha2.WebControls
 
         protected override void OnLoad(EventArgs e)
         {
-            Page.ClientScript.RegisterClientScriptInclude("GoogleReCaptchaAPI", Constants.ScriptUrl);
+            if (!Page.ClientScript.IsClientScriptBlockRegistered(GetType(), "GoogleRecaptcha2API"))
+            {
+                var url = string.IsNullOrEmpty(ExplicitRenderingFunction)
+                    ? Constants.ScriptUrl
+                    : string.Format(Constants.ExplicitRenderingScriptUrl, ExplicitRenderingFunction);
+
+                var tag = string.Format("<script src='{0}' async defer></script>", url);
+                Page.ClientScript.RegisterClientScriptBlock(GetType(), "GoogleRecaptcha2API", tag);
+            }
+            
             base.OnLoad(e);
         }
 
@@ -202,12 +225,18 @@ namespace NRecaptcha2.WebControls
 
         protected override void AddAttributesToRender(HtmlTextWriter writer)
         {
+            if (!string.IsNullOrEmpty(ExplicitRenderingFunction))
+            {
+                writer.AddAttribute(HtmlTextWriterAttribute.Id, ClientID);
+                return;
+            }
+
             if (string.IsNullOrEmpty(SiteKey))
             {
                 throw new InvalidOperationException("SiteKey is required");
             }
 
-            writer.AddAttribute(Constants.Class, Constants.RecaptchaClass);
+            writer.AddAttribute(HtmlTextWriterAttribute.Class, Constants.RecaptchaClass);
             writer.AddAttribute(Constants.SiteKey, SiteKey);
             writer.AddAttribute(Constants.Theme, Theme.ToString().ToLower());
             writer.AddAttribute(Constants.Type, Type.ToString().ToLower());

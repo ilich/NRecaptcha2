@@ -11,6 +11,19 @@ namespace NRecaptcha2.Mvc
     public static class MvcExtensions
     {
         /// <summary>
+        /// Display reCAPTCHA widget using explicit rendering function
+        /// </summary>
+        /// <param name="helper">HTML helper</param>
+        /// <param name="id">Widget div's ID attribute</param>
+        /// <returns>Widget tag HTML</returns>
+        public static IHtmlString NRecaptcha2Explicit(
+            this HtmlHelper helper,
+            string id)
+        {
+            return new Recaptcha2Tag(id);
+        }
+
+        /// <summary>
         /// Displays reCAPTCHA widget
         /// </summary>
         /// <param name="helper">HTML helper</param>
@@ -45,10 +58,11 @@ namespace NRecaptcha2.Mvc
         /// Registers reCAPTCHA JavaScript API
         /// </summary>
         /// <param name="helper">HTML helper</param>
+        /// <param name="explicitRenderingFunction">reCAPTCHA v2.0 custom rendering JavaScript function</param>
         /// <returns>Script tag HTML</returns>
-        public static IHtmlString NRecaptcha2Script(this HtmlHelper helper)
+        public static IHtmlString NRecaptcha2Script(this HtmlHelper helper, string explicitRenderingFunction = "")
         {
-            var tag = new Recaptcha2ScriptTag();
+            var tag = new Recaptcha2ScriptTag(explicitRenderingFunction);
             return tag;
         }
     }

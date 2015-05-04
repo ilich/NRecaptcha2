@@ -1,0 +1,21 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="WebFormsSample.Main" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>NRecaptcha2 ASP.NET Web Forms validation</title>
+</head>
+<body>
+    <ul>
+        <li><a href="~/Default.aspx" runat="server">Basic reCATPCHAT v2.0 usage</a></li>
+        <li><a href="~/CustomRendering.aspx" runat="server">Explicit reCAPTCHA v2.0 rendering</a></li>
+    </ul>
+    <form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder ID="form" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>

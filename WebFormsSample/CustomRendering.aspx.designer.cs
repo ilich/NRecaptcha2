@@ -10,7 +10,7 @@
 namespace WebFormsSample {
     
     
-    public partial class Default {
+    public partial class CustomRendering {
         
         /// <summary>
         /// form control.
@@ -20,6 +20,15 @@ namespace WebFormsSample {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.PlaceHolder form;
+        
+        /// <summary>
+        /// siteKey control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField siteKey;
         
         /// <summary>
         /// firstName control.

@@ -7,6 +7,11 @@ namespace NRecaptcha2.Core
 {
     class Recaptcha2Tag : IHtmlString
     {
+        public Recaptcha2Tag(string id)
+        {
+            Id = id;
+        }
+
         public Recaptcha2Tag(
             string siteKey,
             Theme theme = Theme.Light,
@@ -26,6 +31,12 @@ namespace NRecaptcha2.Core
             TabIndex = tabIndex;
             Callback = callback;
             ExpiredCallback = expiredCallback;
+        }
+
+        public string Id
+        {
+            get;
+            set;
         }
 
         public string SiteKey
@@ -72,6 +83,17 @@ namespace NRecaptcha2.Core
         public override string ToString()
         {
             var tag = new TagBuilder("div");
+            if (!string.IsNullOrEmpty(Id))
+            {
+                tag.GenerateId(Id);
+                return tag.ToString();
+            }
+
+            if (string.IsNullOrEmpty(SiteKey))
+            {
+                throw new InvalidOperationException("SiteKey is required");
+            }
+
             tag.AddCssClass(Constants.RecaptchaClass);
             tag.MergeAttribute(Constants.SiteKey, SiteKey);
             tag.MergeAttribute(Constants.Theme, Theme.ToString().ToLower());

@@ -1,0 +1,48 @@
+﻿@using System.Configuration
+@using NRecaptcha2.Mvc
+@using NRecaptcha2.WebControls
+@using MvcSample.Models
+
+@model Customer
+
+@{
+    var siteKey = ConfigurationManager.AppSettings["SiteKey"];
+}
+
+@section Scripts {
+    @Html.NRecaptcha2Script("showCaptcha")
+}
+
+@Html.ValidationSummary()
+
+@using (Html.BeginForm())
+{
+    @Html.Hidden("siteKey", siteKey, new { id = "siteKey" })
+    
+    @Html.Label("First Name: ")
+    @Html.TextBoxFor(m => m.FirstName)
+
+    <br />
+    <br />
+
+    @Html.Label("Last Name: ")
+    @Html.TextBoxFor(m => m.LastName)
+
+    <br />
+    <br />
+
+    @Html.NRecaptcha2Explicit("captcha")
+
+    <br />
+
+    <input type="submit" value="Submit" />
+}
+
+<script>
+    function showCaptcha() {
+        var siteKey = document.getElementById("siteKey");
+        grecaptcha.render("captcha", {
+            "sitekey": siteKey.value
+        });
+    }
+</script>

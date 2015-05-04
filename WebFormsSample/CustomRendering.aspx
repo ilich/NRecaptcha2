@@ -1,9 +1,11 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="WebFormsSample.Default" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="CustomRendering.aspx.cs" Inherits="WebFormsSample.CustomRendering" %>
 <%@ Register Assembly="NRecaptcha2" Namespace="NRecaptcha2.WebControls" TagPrefix="nrecaptcha2" %>
 
 <asp:Content ContentPlaceHolderID="form" runat="server">
     <asp:PlaceHolder ID="form" runat="server">
         <asp:ValidationSummary runat="server" />
+
+        <asp:HiddenField id="siteKey" runat="server" ClientIDMode="Static" />
 
         <asp:Label runat="server">First Name:</asp:Label>
         <asp:TextBox ID="firstName" runat="server"></asp:TextBox>
@@ -23,11 +25,20 @@
         <br />
         <br />
 
-        <nrecaptcha2:NRecaptcha2Validator ID="captcha" Theme="Light" Type="Image" runat="server" ErrorMessage="Captcha is invalid" />
+        <nrecaptcha2:NRecaptcha2Validator ID="captcha" ClientIDMode="Static" runat="server" ExplicitRenderingFunction="showCaptcha" ErrorMessage="Captcha is invalid" />
             
         <br />
 
         <asp:Button  runat="server" OnClick="SubmitForm" Text="Submit" />
+
+        <script>
+            function showCaptcha() {
+                var siteKey = document.getElementById("siteKey");
+                grecaptcha.render("captcha", {
+                    "sitekey": siteKey.value
+                });
+            }
+        </script>
     </asp:PlaceHolder>
         
     <asp:PlaceHolder ID="results" runat="server" Visible="false">
