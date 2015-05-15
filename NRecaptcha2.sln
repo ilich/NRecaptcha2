@@ -32,6 +32,15 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebPagesSample(1)", "http:/
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcSample", "MvcSample\MvcSample.csproj", "{ADCE3A18-C5AD-4C13-90A2-A0FF567C17F7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NRecaptcha2_NET45", "NRecaptcha2_NET45\NRecaptcha2_NET45.csproj", "{F4BE8456-F0C1-4BD0-8753-F0D46C1FDBB9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{FC3C16C7-0AAA-4A95-8BF6-5244446BF892}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,6 +63,10 @@ Global
 		{ADCE3A18-C5AD-4C13-90A2-A0FF567C17F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADCE3A18-C5AD-4C13-90A2-A0FF567C17F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ADCE3A18-C5AD-4C13-90A2-A0FF567C17F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4BE8456-F0C1-4BD0-8753-F0D46C1FDBB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4BE8456-F0C1-4BD0-8753-F0D46C1FDBB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4BE8456-F0C1-4BD0-8753-F0D46C1FDBB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4BE8456-F0C1-4BD0-8753-F0D46C1FDBB9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
