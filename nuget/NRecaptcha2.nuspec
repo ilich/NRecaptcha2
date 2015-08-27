@@ -2,19 +2,25 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>NRecaptcha2</id>
-        <version>0.1.0</version>
+        <version>0.1.1</version>
         <title>NRecaptcha2</title>
         <authors>Ilya Verbitskiy</authors>
         <licenseUrl>https://github.com/ilich/NRecaptcha2/blob/master/LICENSE</licenseUrl>
         <projectUrl>https://github.com/ilich/NRecaptcha2</projectUrl>
         <requireLicenseAcceptance>true</requireLicenseAcceptance>
         <description>The project adds Google reCAPTCHA Version 2.0 support to ASP.NET Web Forms, ASP.NET MVC and ASP.NET Web Pages (Razor) applications.</description>
-        <releaseNotes>0.1.0
+        <releaseNotes>
+0.1.0
 
 - Created reCAPTCHA validation control for ASP.NET Web Forms
 - Created reCAPTCHA HTML helpers for ASP.NET MVC and ASP.NET Web Pages (Razor)
 - Created ASP.NET MVC Authentication Filter to validate reCAPTCHA
-- Created API to validate reCAPTCHA using Google reCAPTCHA service. The API should be primarily used on ASP.NET Web Pages (Razor)</releaseNotes>
+- Created API to validate reCAPTCHA using Google reCAPTCHA service. The API should be primarily used on ASP.NET Web Pages (Razor)
+
+0.1.1
+
+- Added reCAPTCHA localization support 
+        </releaseNotes>
         <copyright>Copyright © Ilya Verbitskiy 2015</copyright>
         <tags>recaptcha google captcha</tags>
     </metadata>
