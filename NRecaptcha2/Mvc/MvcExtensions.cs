@@ -59,10 +59,14 @@ namespace NRecaptcha2.Mvc
         /// </summary>
         /// <param name="helper">HTML helper</param>
         /// <param name="explicitRenderingFunction">reCAPTCHA v2.0 custom rendering JavaScript function</param>
+        /// <param name="language">reCAPTCHA language</param>
         /// <returns>Script tag HTML</returns>
-        public static IHtmlString NRecaptcha2Script(this HtmlHelper helper, string explicitRenderingFunction = "")
+        public static IHtmlString NRecaptcha2Script(
+            this HtmlHelper helper, 
+            string explicitRenderingFunction = "", 
+            Language? language = null)
         {
-            var tag = new Recaptcha2ScriptTag(explicitRenderingFunction);
+            var tag = new Recaptcha2ScriptTag(explicitRenderingFunction, language);
             return tag;
         }
     }

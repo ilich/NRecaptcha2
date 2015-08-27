@@ -1,7 +1,7 @@
 ﻿@using System.Configuration
 @using NRecaptcha2.Mvc
-@using NRecaptcha2.WebControls
 @using MvcSample.Models
+@using NRecaptcha2.Core
 
 @model Customer
 
@@ -10,7 +10,7 @@
 }
 
 @section Scripts {
-    @Html.NRecaptcha2Script("showCaptcha")
+    @Html.NRecaptcha2Script("showCaptcha", Language.Spanish)
 }
 
 @Html.ValidationSummary()

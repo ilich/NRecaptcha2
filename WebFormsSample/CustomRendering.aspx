@@ -25,7 +25,7 @@
         <br />
         <br />
 
-        <nrecaptcha2:NRecaptcha2Validator ID="captcha" ClientIDMode="Static" runat="server" ExplicitRenderingFunction="showCaptcha" ErrorMessage="Captcha is invalid" />
+        <nrecaptcha2:NRecaptcha2Validator ID="captcha" ClientIDMode="Static" Language="Spanish" runat="server" ExplicitRenderingFunction="showCaptcha" ErrorMessage="Captcha is invalid" />
             
         <br />
 

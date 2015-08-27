@@ -72,6 +72,12 @@
     <Compile Include="..\NRecaptcha2\Core\Constants.cs">
       <Link>Core\Constants.cs</Link>
     </Compile>
+    <Compile Include="..\NRecaptcha2\Core\Language.cs">
+      <Link>Core\Language.cs</Link>
+    </Compile>
+    <Compile Include="..\NRecaptcha2\Core\LanguageHelpers.cs">
+      <Link>Core\LanguageHelpers.cs</Link>
+    </Compile>
     <Compile Include="..\NRecaptcha2\Core\Recaptcha2ScriptTag.cs">
       <Link>Core\Recaptcha2ScriptTag.cs</Link>
     </Compile>

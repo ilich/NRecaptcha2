@@ -73,6 +73,23 @@ namespace NRecaptcha2.WebControls
         }
 
         /// <summary>
+        /// Gets or sets reCAPTCHA language
+        /// </summary>
+        [Bindable(false)]
+        public Language? Language
+        {
+            get
+            {
+                var lang = ViewState["Language"] as Language?;
+                return lang;
+            }
+            set
+            {
+                ViewState["Language"] = value;
+            }
+        }
+
+        /// <summary>
         /// Gets or sets the color theme of the widget.
         /// </summary>
         [Bindable(false)]
@@ -196,6 +213,14 @@ namespace NRecaptcha2.WebControls
                 var url = string.IsNullOrEmpty(ExplicitRenderingFunction)
                     ? Constants.ScriptUrl
                     : string.Format(Constants.ExplicitRenderingScriptUrl, ExplicitRenderingFunction);
+
+                if (Language != null)
+                {
+                    var lang = LanguageHelpers.Language2String(Language.Value);
+                    url += url.Contains("?")
+                        ? "&hl=" + lang
+                        : "?hl=" + lang;
+                }
 
                 var tag = string.Format("<script src='{0}' async defer></script>", url);
                 Page.ClientScript.RegisterClientScriptBlock(GetType(), "GoogleRecaptcha2API", tag);
